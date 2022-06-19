@@ -1,9 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-builder.Services.AddDbContext<app_Truck.Models.Truck>(options => 
+builder.Services.AddRazorPages();
+builder.Services.AddDbContext<app_Truck.Models.TruckContext>(options => 
 options.UseSqlite(builder.Configuration.GetConnectionString("TruckConnetion")));
 
 var app = builder.Build();
